@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using SalesWebMvc.Models.ViewModels;
 
 namespace SalesWebMvc.Controllers
 {
@@ -26,7 +27,7 @@ namespace SalesWebMvc.Controllers
         public IActionResult Privacy()
         {
             ViewData["Message"] = "Salles Web MVC App from C# Course";
-            ViewData["Professor"] = "Nelio Alves";
+            ViewData["Professor"] = "Roney Erdemann";
 
             return View();
         }
