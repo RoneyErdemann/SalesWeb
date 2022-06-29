@@ -1,13 +1,8 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using SalesWebMvc.Model;
 
@@ -27,8 +22,13 @@ namespace SalesWebMvc
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<SalesWebMvcContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("SalesWebMvcContext")));
+            //svar connection = Configuration["ConnectionStrings:SalesWebMvcContext"];
+
+            //services.AddDbContext<SalesWebMvcContext>(options => options.UseSqlite(connection), builder =>
+            //            builder.MigrationsAssembly("SalesWebMvc"));
+            services.AddDbContext<SalesWebMvcContext>(options => options.UseSqlite(Configuration.GetConnectionString("SalesWebMvcContext"), builder =>
+                                    builder.MigrationsAssembly("SalesWebMvc")));
+            //options.UseSqlite(Configuration.GetConnectionString("SalesWebMvcContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
