@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using SalesWebMvc.Model;
 using SalesWebMvc.Models;
 
 namespace SalesWebMvc.Controllers
